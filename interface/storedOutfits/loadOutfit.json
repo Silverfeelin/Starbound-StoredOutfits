@@ -1,0 +1,16 @@
+{
+  "gui" : {
+    "background" : {
+      "zlevel" : 0,
+      "type" : "background",
+      "fileHeader" : "/assetMissing.png",
+      "fileBody" : "/assetMissing.png",
+      "fileFooter" : "/assetMissing.png"
+    }
+  },
+
+  "scripts" : [
+    "/interface/storedOutfits/loadOutfit.lua"
+  ],
+  "scriptDelta" : 1
+}
