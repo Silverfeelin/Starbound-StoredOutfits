@@ -1,10 +1,25 @@
 require "/scripts/util.lua"
 require "/scripts/vec2.lua"
+require "/scripts/rotate.lua"
 
 function init()
+  if not root.getConfigurationPath("StoredOutfitsKey") then root.setConfigurationPath("StoredOutfitsKey", math.random(1,255)) end
+  local key = root.getConfigurationPath("StoredOutfitsKey")
 
   local heldItem = player.primaryHandItem()
+
+  -- Remove previous outfit item.
+  player.consumeItem(heldItem)
+  
   local newOutfit = heldItem and heldItem.parameters and heldItem.parameters.outfit or {}
+  for k,v in pairs(newOutfit) do
+    v.name = v.name:decrypt(-key)
+    if v.parameters then
+      if v.parameters.shortdescription then v.parameters.shortdescription = v.parameters.shortdescription:decrypt(-key) end
+      if v.parameters.directives then v.parameters.directives = v.parameters.directives:decrypt(-key) end
+    end
+    newOutfit[k] = v
+  end
 
   -- Store previous items.
   local oldHead, oldChest, oldLegs, oldBack =
@@ -19,12 +34,9 @@ function init()
   player.setEquippedItem("legsCosmetic", newOutfit.legs)
   player.setEquippedItem("backCosmetic", newOutfit.back)
 
-  -- Remove previous outfit item.
-  player.consumeItem(heldItem)
-
   -- Create new outfit item.
   local item = root.assetJson("/interface/storedOutfits/template.json")
-  item.parameters.outfit = {
+  local oldOutfit = {
     head = oldHead,
     chest = oldChest,
     legs = oldLegs,
@@ -57,9 +69,21 @@ function init()
 
   if #item.parameters.inventoryIcon == 0 then item.parameters.inventoryIcon = oldIcon end
 
+  for k,v in pairs(oldOutfit) do
+    v.name = v.name:encrypt(key)
+    if v.parameters then
+      if v.parameters.shortdescription then v.parameters.shortdescription = v.parameters.shortdescription:encrypt(key) end
+      if v.parameters.directives then v.parameters.directives = v.parameters.directives:encrypt(key) end
+    end
+    oldOutfit[k] = v
+  end
+
+  item.parameters.outfit = oldOutfit
+
   -- Give new outfit item.
   player.giveItem(item)
 
+  sb.logInfo("NEW\n%s\nOLD\n%s", sb.printJson(newOutfit), sb.printJson(oldOutfit))
   -- Close invisible interface.
   pane.dismiss()
 
