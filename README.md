@@ -1,4 +1,4 @@
-# Starbound-StoredOutfits
+# Starbound Stored Outfits
 A multiplayer friendly mod that adds custom items which can be used to store and quickly equip outfits.
 
 The idea is that using an item to store the outfit is more convenient than having to open an interface and manually selecting the outfit from a list, since you have direct control over what items you're holding and where the items are.
