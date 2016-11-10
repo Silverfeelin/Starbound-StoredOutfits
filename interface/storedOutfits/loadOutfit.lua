@@ -89,7 +89,6 @@ function init()
   -- Give new outfit item.
   player.giveItem(item)
 
-  sb.logInfo("NEW\n%s\nOLD\n%s", sb.printJson(newOutfit), sb.printJson(oldOutfit))
   -- Close invisible interface.
   pane.dismiss()
 
