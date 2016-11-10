@@ -1,22 +1,26 @@
 require "/scripts/util.lua"
 require "/scripts/vec2.lua"
-require "/scripts/rotate.lua"
+require "/scripts/encryption.lua"
+
+local encrypt = encryption.encrypt
+local decrypt = encryption.decrypt
 
 function init()
-  if not root.getConfigurationPath("StoredOutfitsKey") then root.setConfigurationPath("StoredOutfitsKey", math.random(1,255)) end
-  local key = root.getConfigurationPath("StoredOutfitsKey")
+  -- Ensure a key exists.
+  if not encryption.getKey() then encryption.generateKey() end
 
   local heldItem = player.primaryHandItem()
 
   -- Remove previous outfit item.
   player.consumeItem(heldItem)
-  
+
   local newOutfit = heldItem and heldItem.parameters and heldItem.parameters.outfit or {}
   for k,v in pairs(newOutfit) do
-    v.name = v.name:decrypt(-key)
+    v.name = decrypt(v.name)
     if v.parameters then
-      if v.parameters.shortdescription then v.parameters.shortdescription = v.parameters.shortdescription:decrypt(-key) end
-      if v.parameters.directives then v.parameters.directives = v.parameters.directives:decrypt(-key) end
+      if v.parameters.shortdescription then v.parameters.shortdescription = decrypt(v.parameters.shortdescription) end
+      if v.parameters.description then v.parameters.description = decrypt(v.parameters.description) end
+      if v.parameters.directives then v.parameters.directives = decrypt(v.parameters.directives) end
     end
     newOutfit[k] = v
   end
@@ -70,11 +74,13 @@ function init()
   if #item.parameters.inventoryIcon == 0 then item.parameters.inventoryIcon = oldIcon end
 
   for k,v in pairs(oldOutfit) do
-    v.name = v.name:encrypt(key)
+    v.name = encrypt(v.name)
     if v.parameters then
-      if v.parameters.shortdescription then v.parameters.shortdescription = v.parameters.shortdescription:encrypt(key) end
-      if v.parameters.directives then v.parameters.directives = v.parameters.directives:encrypt(key) end
+      if v.parameters.shortdescription then v.parameters.shortdescription = encrypt(v.parameters.shortdescription) end
+      if v.parameters.description then v.parameters.description = encrypt(v.parameters.description) end
+      if v.parameters.directives then v.parameters.directives = encrypt(v.parameters.directives) end
     end
+
     oldOutfit[k] = v
   end
 
