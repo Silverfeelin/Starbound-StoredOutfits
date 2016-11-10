@@ -12,6 +12,10 @@ furnished to do so, subject to the following conditions:
 The file listed below is property of Chucklefish LTD. or an adapted version thereof. I do not claim ownership of this file and it does not fall under this specific license.
 - /items/active/fossil/fossilbrush.lua
 
+The files listed below have their own license, found in the header of the files. I do not claim ownership of these files and they do not fall under this license.
+- /scripts/arc4.lua
+- /scripts/base64.lua
+
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
