@@ -17,7 +17,6 @@ Installation, usage and further information can be found on the [Wiki](https://g
 #### Quick Reference
 * [Installation](https://github.com/Silverfeelin/Starbound-StoredOutfits/wiki/Installation)
 * [Usage](https://github.com/Silverfeelin/Starbound-StoredOutfits/wiki/Usage)
-* [Licenses](#licenses)
 
 ## Features
 
