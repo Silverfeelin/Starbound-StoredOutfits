@@ -62,6 +62,10 @@ function init()
   local newOutfit = heldItem and heldItem.parameters and heldItem.parameters.outfit or {}
   for k,v in pairs(newOutfit) do
     v = decryptItem(v)
+    if not pcall(function() root.itemConfig(v.name)end) then
+      sb.logError("StoredOutfits: Could not read an outfit. Slot: %s. Item: %s.\nYou do not seem to have the right encryption key, or the item simply doesn't exist.", k, v.name)
+      return
+    end
     newOutfit[k] = v
   end
 
