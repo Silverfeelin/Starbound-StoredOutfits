@@ -53,6 +53,7 @@ function init()
   local heldItem = player.primaryHandItem()
 
   -- Remove previous outfit item.
+  heldItem.count = nil
   if player.hasCountOfItem(heldItem) > 1 then
     heldItem.count = 1
     player.consumeItem(heldItem)
