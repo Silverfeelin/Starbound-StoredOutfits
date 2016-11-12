@@ -4,7 +4,7 @@
 	"parameters": {
 		"shortdescription": "Equip Outfit",
 		"twoHanded": true,
-		"maxStack": 1,
+		"maxStack": 999,
 		"description": "Equips the stored outfit. Stores the previously equipped outfit.",
 		"category": "Stored Outfits",
 		"itemInterface": "/interface/storedOutfits/loadOutfit.json",
