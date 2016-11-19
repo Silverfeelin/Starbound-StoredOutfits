@@ -22,7 +22,6 @@ Installation, usage and further information can be found on the [Wiki](https://g
 
 * Storage of entire cosmetic outfits in an item.
 * Swapping outfits with one click while holding the item.
- * The used item will be consumed, to prevent duplication.
  * The currently equipped outfit will be stored in a new outfit item.
 * RC4 encryption on item data, to prevent outfit theft.
  * Using an outfit with an invalid encryption key will destroy (consume) the item.
