@@ -1,0 +1,377 @@
+[
+  {
+    "op": "add",
+    "path": "/gui/btnStoredOutfits",
+    "value": {
+      "type": "button",
+      "base": "/interface/storedOutfits/muiStoredOutfits.png",
+      "hover": "/interface/storedOutfits/muiStoredOutfits.png?brightness=30",
+      "caption": "^shadow;Open\nStored Outfits",
+      "fontSize": 7,
+      "wrapWidth": 80,
+      "zlevel": 20,
+      "hAnchor": "mid",
+      "pressedOffset": [
+        0,
+        -1
+      ],
+      "position": [
+        102,
+        103
+      ],
+      "data": "storedOutfits",
+      "callback": "showInterface"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/gui/soLblOutfit",
+    "value": {
+      "type": "label",
+      "position": [
+        3,
+        209
+      ],
+      "hAnchor": "left",
+      "vAnchor": "bottom",
+      "zlevel": 21,
+      "value": "Outfit"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/gui/soOutfitScroll",
+    "value": {
+      "visible": false,
+      "type": "scrollArea",
+      "zlevel": 34,
+      "rect": [
+        1,
+        72,
+        44,
+        209
+      ],
+      "children": {
+        "list": {
+          "type": "list",
+          "position": [
+            0,
+            0
+          ],
+          "callback": "so.outfitSelected",
+          "schema": {
+            "selectedBG": "/interface/storedOutfits/content.png",
+            "unselectedBG": "/interface/storedOutfits/content.png",
+            "spacing": [
+              0,
+              1
+            ],
+            "memberSize": [
+              43,
+              43
+            ],
+            "listTemplate": {
+              "dummyBackArm": {
+                "type": "image",
+                "file": "/humanoid/any/dummybackarm.png?replace;ffffff00=00000001",
+                "position": [
+                  0,
+                  0
+                ],
+                "zlevel": 32
+              },
+              "backSleeves": {
+                "type": "image",
+                "file": "/assetMissing.png",
+                "position": [
+                  0,
+                  0
+                ],
+                "zlevel": 33
+              },
+              "back": {
+                "type": "image",
+                "file": "/assetMissing.png",
+                "position": [
+                  0,
+                  0
+                ],
+                "zlevel": 34
+              },
+              "dummyHead": {
+                "type": "image",
+                "file": "/humanoid/any/dummyhead.png?replace;ffffff00=00000001",
+                "position": [
+                  0,
+                  0
+                ],
+                "zlevel": 35
+              },
+              "dummyBody": {
+                "type": "image",
+                "file": "/humanoid/any/dummybody.png?replace;ffffff00=00000001",
+                "position": [
+                  0,
+                  0
+                ],
+                "zlevel": 36
+              },
+              "legs": {
+                "type": "image",
+                "file": "/assetMissing.png",
+                "position": [
+                  0,
+                  0
+                ],
+                "zlevel": 37
+              },
+              "chest": {
+                "type": "image",
+                "file": "/assetMissing.png",
+                "position": [
+                  0,
+                  0
+                ],
+                "zlevel": 38
+              },
+              "head": {
+                "type": "image",
+                "file": "/assetMissing.png",
+                "position": [
+                  0,
+                  0
+                ],
+                "zlevel": 39
+              },
+              "dummyFrontArm": {
+                "type": "image",
+                "file": "/humanoid/any/dummyfrontarm.png?replace;ffffff00=00000001",
+                "position": [
+                  0,
+                  0
+                ],
+                "zlevel": 40
+              },
+              "frontSleeves": {
+                "type": "image",
+                "file": "/assetMissing.png",
+                "position": [
+                  0,
+                  0
+                ],
+                "zlevel": 41
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "op": "add",
+    "path": "/gui/soPreview",
+    "value": {
+      "type": "list",
+      "callback": "null",
+      "position": [
+        104,
+        59
+      ],
+      "zlevel": 25,
+      "scissoring": false,
+      "schema": {
+        "selectedBG": "/assetMissing.png",
+        "unselectedBG": "/assetMissing.png",
+        "spacing": [
+          0,
+          -129
+        ],
+        "memberSize": [
+          129,
+          129
+        ],
+        "listTemplate": {
+          "image": {
+            "type": "image",
+            "file": "/assetMissing.png",
+            "scissoring": false,
+            "position": [
+              0,
+              129
+            ],
+            "maxSize": [
+              129,
+              129
+            ],
+            "minSize": [
+              129,
+              129
+            ],
+            "zlevel": 25
+          }
+        }
+      }
+    }
+  },
+  {
+    "op": "add",
+    "path": "/gui/soBtnSave",
+    "value": {
+      "type": "button",
+      "base": "/interface/storedOutfits/button.png",
+      "hover": "/interface/storedOutfits/button.png?brightness=30",
+      "caption": "^shadow;Save Outfit",
+      "wrapWidth": 80,
+      "zlevel": 20,
+      "hAnchor": "mid",
+      "vAnchor": "mid",
+      "pressedOffset": [
+        0,
+        -1
+      ],
+      "position": [
+        20,
+        34
+      ],
+      "visible": true,
+      "callback": "so.save"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/gui/soBtnEquip",
+    "value": {
+      "type": "button",
+      "base": "/interface/storedOutfits/button.png",
+      "hover": "/interface/storedOutfits/button.png?brightness=30",
+      "caption": "^shadow;Equip Outfit",
+      "wrapWidth": 80,
+      "zlevel": 20,
+      "hAnchor": "mid",
+      "vAnchor": "mid",
+      "pressedOffset": [
+        0,
+        -1
+      ],
+      "position": [
+        91,
+        34
+      ],
+      "visible": true,
+      "callback": "so.equip"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/gui/soBtnSpawn",
+    "value": {
+      "type": "button",
+      "base": "/interface/storedOutfits/button.png",
+      "hover": "/interface/storedOutfits/button.png?brightness=30",
+      "caption": "^shadow;Spawn Outfit",
+      "wrapWidth": 80,
+      "zlevel": 20,
+      "hAnchor": "mid",
+      "vAnchor": "mid",
+      "pressedOffset": [
+        0,
+        -1
+      ],
+      "position": [
+        170,
+        34
+      ],
+      "visible": true,
+      "callback": "so.spawn"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/gui/soBtnDelete",
+    "value": {
+      "type": "button",
+      "base": "/interface/storedOutfits/button.png",
+      "hover": "/interface/storedOutfits/button.png?brightness=30",
+      "caption": "^shadow;Delete Outfit",
+      "wrapWidth": 80,
+      "zlevel": 20,
+      "hAnchor": "mid",
+      "vAnchor": "mid",
+      "pressedOffset": [
+        0,
+        -1
+      ],
+      "position": [
+        270,
+        34
+      ],
+      "visible": true,
+      "callback": "so.delete"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/gui/soStorage",
+    "value": {
+      "type": "label",
+      "position": [
+        0,
+        0
+      ],
+      "zlevel": -1,
+      "visible": false,
+      "value": "",
+      "data": {}
+    }
+  },
+  {
+    "op": "add",
+    "path": "/packages/-",
+    "value": {
+      "activator": "btnStoredOutfits",
+      "show": [
+        "soLblOutfit",
+        "soOutfitScroll",
+        "soPreview",
+        "soBtnEquip",
+        "soBtnSpawn",
+        "soBtnSave",
+        "soBtnDelete"
+      ],
+      "hide": [],
+      "settingControls": [],
+      "update": {
+        "bgb": "/interface/storedOutfits/body.png",
+        "bgh": "/interface/storedOutfits/header.png",
+        "bgf": "/interface/storedOutfits/footer.png"
+      },
+      "name": "storedOutfits",
+      "script": "/scripts/storedOutfits/storedOutfits.lua"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/scriptWidgetCallbacks/-",
+    "value": "so.spawn"
+  },
+  {
+    "op": "add",
+    "path": "/scriptWidgetCallbacks/-",
+    "value": "so.equip"
+  },
+  {
+    "op": "add",
+    "path": "/scriptWidgetCallbacks/-",
+    "value": "so.outfitSelected"
+  },
+  {
+    "op": "add",
+    "path": "/scriptWidgetCallbacks/-",
+    "value": "so.save"
+  },
+  {
+    "op": "add",
+    "path": "/scriptWidgetCallbacks/-",
+    "value": "so.delete"
+  }
+]

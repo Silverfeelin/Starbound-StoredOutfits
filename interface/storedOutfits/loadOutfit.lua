@@ -1,6 +1,6 @@
 require "/scripts/util.lua"
 require "/scripts/vec2.lua"
-require "/scripts/encryption.lua"
+require "/scripts/storedOutfits/encryption.lua"
 
 --[[
   Default configuration. If the configration is not set on the

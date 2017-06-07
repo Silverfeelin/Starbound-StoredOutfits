@@ -2,8 +2,9 @@
   "name" : "StoredOutfits",
   "friendlyName" : "Stored Outfits",
 
-  "version" : "1.0",
+  "version" : "2.0",
   "author" : "Silverfeelin",
   "description" : "See: ^#61b3de;https://github.com/Silverfeelin/Starbound-StoredOutfits^reset;",
-  "requires" : ["ItemInterfaces"]
+  "requires" : ["ItemInterfaces"],
+  "includes" : ["Manipulated UI"]
 }
