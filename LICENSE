@@ -9,10 +9,6 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The files listed below have their own license, found in the header of the files. I do not claim ownership of these files and they do not fall under this license.
-- /scripts/arc4.lua
-- /scripts/base64.lua
-
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 

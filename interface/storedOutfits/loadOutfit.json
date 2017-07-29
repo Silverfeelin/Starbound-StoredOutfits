@@ -1,7 +1,6 @@
 {
   "gui" : {
     "background" : {
-      "zlevel" : 0,
       "type" : "background",
       "fileHeader" : "/assetMissing.png",
       "fileBody" : "/assetMissing.png",
