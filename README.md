@@ -1,3 +1,7 @@
+## This repository is no longer maintained. The [Wardrobe](https://github.com/Silverfeelin/Starbound-Wardrobe) includes saving and loading outfits, on top of various other features.
+
+---
+
 # Starbound Stored Outfits
 A multiplayer friendly mod that adds custom items which can be used to store and quickly equip outfits.
 
